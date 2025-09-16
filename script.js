@@ -21,7 +21,28 @@ Task:
 3) Add a setter updateGpa(newGpa) or use a set accessor for gpa that validates 0.0–4.0.
 4) Create an instance/object and output its attributes using the getter(s).
 */
+const student = {
+  firstName: "Ali",
+  lastName: "Hassan",
+  gpa: 3.2,
+  get fullName() {
+    return this.firstName + " " + this.lastName;
+  },
 
+  get gpa() {
+    return this.gpa;
+  },
+  set gpa(newGpa) {
+    if (newGpa >= 0.0 && newGpa <= 4.0) {
+      this.gpa = newGpa;
+    } else {
+      console.log("Invalid GPA");
+    }
+  }
+};console.log(student.fullName); 
+console.log(student.gpa);     
+student.gpa = 3.8;
+console.log(student.gpa);      
 // ====================================
 // TODO-2: OBJECT AS MAP + for...in LOOP
 // ====================================
@@ -30,6 +51,15 @@ Task:
 1) Make an object used as a "map" (key → value), e.g., course codes → titles.
 2) Iterate over it with for...in and display each key and value.
 */
+const courses = {
+  CS101: "swe 363",
+  MATH201: "math 201",
+  ENG150: "English 101"
+};
+
+for (let code in courses) {
+  console.log(code + " → " + courses[code]);
+}
 
 // =========================================
 // TODO-3: STRING OBJECT — charAt() & length
@@ -39,6 +69,10 @@ Task:
 1) Create a String object or plain string.
 2) Use .charAt(index) and .length to output characters and size.
 */
+let word = "Hello";
+console.log(word.charAt(0));   
+console.log(word.charAt(4));  
+console.log(word.length);      
 
 // ===================================
 // TODO-4: DATE — day, month, and year
@@ -49,6 +83,16 @@ Task:
 2) Find and display the current day of month, month (0–11), and year.
 //    (Hint: getDate(), getMonth(), getFullYear() )
 */
+// 1) Create a Date for the current moment
+let now = new Date();
+
+// 2) Get current day of month, month, and year
+let day = now.getDate();      
+let month = now.getMonth();     
+let year = now.getFullYear();   
+console.log("Day:", day);
+console.log("Month:", month);
+console.log("Year:", year);
 
 // ============================================================
 // TODO-5: ARRAY + SPREAD — find MIN and MAX from 10 numbers
