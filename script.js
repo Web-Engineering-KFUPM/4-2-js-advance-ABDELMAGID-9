@@ -69,11 +69,12 @@ Task:
 1) Create a String object or plain string.
 2) Use .charAt(index) and .length to output characters and size.
 */
-let word = "Hello";
-console.log(word.charAt(0));   
-console.log(word.charAt(4));  
-console.log(word.length);      
-
+let myString = "Hello, World!";
+let index = 7; 
+let charAtIndex = myString.charAt(index); 
+let stringLength = myString.length; 
+console.log("Character at index " + index + ": " + charAtIndex);
+console.log("Length of the string: " + stringLength); 
 // ===================================
 // TODO-4: DATE — day, month, and year
 // ===================================
@@ -87,12 +88,13 @@ Task:
 let now = new Date();
 
 // 2) Get current day of month, month, and year
-let day = now.getDate();      
-let month = now.getMonth();     
-let year = now.getFullYear();   
-console.log("Day:", day);
-console.log("Month:", month);
-console.log("Year:", year);
+let day = now.getDate();         
+let month = now.getMonth();      
+let year = now.getFullYear();    
+console.log("Day: " + day); 
+console.log("Month: " + month); 
+console.log("Year: " + year);
+
 
 // ============================================================
 // TODO-5: ARRAY + SPREAD — find MIN and MAX from 10 numbers
@@ -103,6 +105,12 @@ Task:
 2) Use spread syntax with Math.min(...) and Math.max(...) to find extremes.
 3) Display both values.
 */
+const numbers = [34, 7, 23, 32, 5, 62, 78, 1, 90, 12];
+
+const minNumber = Math.min(numbers);
+const maxNumber = Math.max(numbers);
+console.log("Minimum number: " + minNumber);  
+console.log("Maximum number: " + maxNumber);
 
 // ===================================================================
 // TODO-6: EXCEPTIONS — try/catch/finally with EMPTY ARRAY edge case
@@ -114,7 +122,12 @@ Task:
 3) Handle the error using try { ... } catch (e) { ... } finally { ... } and log messages
    in each block so you can see the flow of control.
 */
-
+function findMax(arr) {
+  if (arr.length === 0) {
+    throw new Error("Array is empty");
+  }         
+  return Math.max(arr);
+} 
 // ===================================================================================
 // TODO-7: REGEX + forEach — find words containing 'ab' and log matches from the list
 // ===================================================================================
@@ -126,5 +139,13 @@ Given: const words = ["ban", "babble", "make", "flab"];
 3) For matches, log "<word> matches!".
 4) Display the words that matches the pattern.
 */
+const words = ["ban", "babble", "make", "flab"];
+const pattern = /ab/;
+
+words.forEach(word => {   
+  if (pattern.test(word)) {
+    console.log(word + " matches!");
+  }   
+}); 
 
 // End of Advance JavaScript Lab — good luck!
